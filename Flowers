@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="kk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aru Rose — Премиум раушан гүлдер дүкені</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cormorant Garamond (сәнді тақырыптар үшін) және Plus Jakarta Sans / Inter (мәтіндер үшін) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome белгішелері -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    },
+                    colors: {
+                        roseDeep: '#881337',
+                        roseRich: '#9F1239',
+                        roseSoft: '#FFF1F2',
+                        creamBg: '#FAF7F5',
+                        goldAccent: '#C59B27',
+                        charcoal: '#1C1917',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-creamBg text-charcoal font-sans antialiased selection:bg-roseDeep selection:text-white">
+
+    <!-- Навигациялық панель (Header) -->
+    <header class="fixed w-full top-0 z-40 bg-creamBg/90 backdrop-blur-md border-b border-rose-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Логотип -->
+                <a href="#" class="flex items-center space-x-2 group">
+                    <div class="w-10 h-10 rounded-full bg-roseDeep text-white flex items-center justify-center shadow-md group-hover:bg-roseRich transition">
+                        <i class="fa-solid fa-spa text-lg text-amber-200"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-2xl sm:text-3xl font-bold tracking-wide text-roseDeep">ARU ROSE</span>
+                        <span class="block text-[10px] uppercase tracking-[0.25em] text-stone-500 -mt-1">Гүлдер үйі</span>
+                    </div>
+                </a>
+
+                <!-- Мәзір сілтемелері (Desktop) -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium text-stone-700">
+                    <a href="#catalog" class="hover:text-roseDeep transition">Каталог</a>
+                    <a href="#advantages" class="hover:text-roseDeep transition">Артықшылықтар</a>
+                    <a href="#reviews" class="hover:text-roseDeep transition">Пікірлер</a>
+                    <a href="#contacts" class="hover:text-roseDeep transition">Байланыс</a>
+                </nav>
+
+                <!-- Себет батырмасы және телефон -->
+                <div class="flex items-center space-x-3 sm:space-x-5">
+                    <a href="tel:+77001234567" class="hidden lg:flex items-center text-sm font-semibold text-stone-700 hover:text-roseDeep transition">
+                        <i class="fa-solid fa-phone text-roseDeep mr-2"></i>
+                        +7 (700) 123-45-67
+                    </a>
+
+                    <button onclick="toggleCartModal(true)" class="relative bg-roseDeep hover:bg-roseRich text-white px-4 py-2.5 rounded-full shadow-lg shadow-rose-900/20 flex items-center space-x-2 transition transform active:scale-95">
+                        <i class="fa-solid fa-bag-shopping text-amber-200"></i>
+                        <span class="text-sm font-medium hidden sm:inline">Себет</span>
+                        <span id="cart-badge" class="bg-amber-400 text-charcoal text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Басты баннер (Hero Section) -->
+    <section class="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+        <!-- Сәндік фон элементтері -->
+        <div class="absolute top-0 right-0 -z-10 w-96 h-96 bg-rose-200/40 rounded-full blur-3xl translate-x-1/3 -translate-y-1/4"></div>
+        <div class="absolute bottom-0 left-0 -z-10 w-80 h-80 bg-amber-200/30 rounded-full blur-3xl -translate-x-1/3 translate-y-1/4"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Сол жақ мәтін -->
+                <div class="lg:col-span-6 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-rose-100/80 border border-rose-200 px-4 py-1.5 rounded-full text-roseDeep text-xs sm:text-sm font-semibold tracking-wide">
+                        <i class="fa-solid fa-crown text-goldAccent"></i>
+                        <span>Голландия және Эквадор сұрыптары</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-charcoal leading-[1.12]">
+                        Сезіміңізді ең нәзік <span class="text-roseDeep italic">раушан гүлдерімен</span> жеткізіңіз
+                    </h1>
+
+                    <p class="text-stone-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Жаңа кесілген хош иісті раушандар. Кәсіби флористердің қолымен жиналған авторлық гүл шоқтары және қала бойынша 60 минут ішінде жедел жеткізу.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#catalog" class="w-full sm:w-auto px-8 py-4 bg-roseDeep hover:bg-roseRich text-white font-semibold rounded-full shadow-xl shadow-rose-900/25 transition transform hover:-translate-y-0.5 text-center">
+                            Гүл шоғын таңдау
+                        </a>
+                        <button onclick="openQuickWhatsApp()" class="w-full sm:w-auto px-7 py-4 bg-white hover:bg-stone-50 text-charcoal border border-stone-200 font-semibold rounded-full shadow-sm flex items-center justify-center space-x-2 transition">
+                            <i class="fa-brands fa-whatsapp text-green-600 text-xl"></i>
+                            <span>WhatsApp-қа жазу</span>
+                        </button>
+                    </div>
+
+                    <!-- Қысқаша статистика -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-stone-200/80 max-w-md mx-auto lg:mx-0">
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold text-roseDeep">60 мин</p>
+                            <p class="text-xs text-stone-500">Жылдам жеткізу</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold text-roseDeep">100%</p>
+                            <p class="text-xs text-stone-500">Балғын гүлдер</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold text-roseDeep">24/7</p>
+                            <p class="text-xs text-stone-500">Үздіксіз қызмет</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Оң жақ сурет -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] max-h-[560px] mx-auto">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=80" 
+                             onerror="this.src='https://placehold.co/800x1000/881337/FFF1F2?text=101+Қызыл+Раушан'"
+                             alt="Қызыл раушан гүлдер шоғы" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-lg flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-goldAccent">Хит сатылым</span>
+                                <h3 class="font-serif text-xl font-bold text-charcoal">«Патшайым» 101 раушан</h3>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-lg font-bold text-roseDeep">85 000 ₸</span>
+                                <button onclick="addToCart(1)" class="text-xs font-semibold underline text-stone-600 hover:text-roseDeep">Себетке қосу</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Артықшылықтар бөлімі -->
+    <section id="advantages" class="py-14 bg-white border-y border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="flex items-start space-x-4 p-4 rounded-2xl hover:bg-creamBg transition">
+                    <div class="w-12 h-12 rounded-2xl bg-roseSoft text-roseDeep flex items-center justify-center shrink-0 text-xl">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-charcoal text-base">Тегін жеткізу</h3>
+                        <p class="text-sm text-stone-500 mt-1">25 000 ₸ жоғары тапсырыстарға қала ішінде тегін жеткіземіз.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-4 p-4 rounded-2xl hover:bg-creamBg transition">
+                    <div class="w-12 h-12 rounded-2xl bg-roseSoft text-roseDeep flex items-center justify-center shrink-0 text-xl">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-charcoal text-base">Жіберер алдында фото</h3>
+                        <p class="text-sm text-stone-500 mt-1">Дайын гүл шоғын суретке түсіріп, сізге WhatsApp арқылы көрсетеміз.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-4 p-4 rounded-2xl hover:bg-creamBg transition">
+                    <div class="w-12 h-12 rounded-2xl bg-roseSoft text-roseDeep flex items-center justify-center shrink-0 text-xl">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-charcoal text-base">Ашық хат сыйлыққа</h3>
+                        <p class="text-sm text-stone-500 mt-1">Әр гүл шоғына жүрекжарды тілегіңіз жазылған сәнді открытка тегін.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-4 p-4 rounded-2xl hover:bg-creamBg transition">
+                    <div class="w-12 h-12 rounded-2xl bg-roseSoft text-roseDeep flex items-center justify-center shrink-0 text-xl">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-charcoal text-base">Балғындық кепілдігі</h3>
+                        <p class="text-sm text-stone-500 mt-1">Гүлдер арнайы тоңазытқыш камераларда сақталады, 10 күнге дейін солмайды.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Каталог бөлімі -->
+    <section id="catalog" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-goldAccent">Біздің топтама</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-charcoal mt-2">Таңдаулы раушан шоқтары</h2>
+                <p class="text-stone-600 mt-3 text-sm sm:text-base">Кез келген мереке мен ерекше сәтке арналған талғампаз гүл композициялары</p>
+            </div>
+
+            <!-- Сүзгі (Фильтр) батырмалары -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10" id="category-filters">
+                <button onclick="filterProducts('all', this)" class="filter-btn active px-5 py-2.5 rounded-full text-sm font-medium bg-roseDeep text-white shadow-md transition">
+                    Барлығы
+                </button>
+                <button onclick="filterProducts('classic', this)" class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium bg-white text-stone-700 hover:bg-roseSoft border border-stone-200 transition">
+                    Классикалық
+                </button>
+                <button onclick="filterProducts('box', this)" class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium bg-white text-stone-700 hover:bg-roseSoft border border-stone-200 transition">
+                    Қораптағы гүлдер
+                </button>
+                <button onclick="filterProducts('vip', this)" class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium bg-white text-stone-700 hover:bg-roseSoft border border-stone-200 transition">
+                    VIP (51 / 101 раушан)
+                </button>
+            </div>
+
+            <!-- Тауарлар торы (Grid) -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- JavaScript арқылы толтырылады -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Арнайы ұсыныс баннері -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto rounded-3xl bg-gradient-to-r from-roseDeep via-roseRich to-charcoal text-white p-8 sm:p-14 shadow-2xl relative overflow-hidden">
+            <div class="absolute right-0 top-0 w-72 h-72 bg-amber-400/10 rounded-full blur-2xl"></div>
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-8 space-y-4">
+                    <span class="inline-block bg-amber-400/20 text-amber-200 border border-amber-300/30 text-xs font-semibold px-3 py-1 rounded-full">
+                        Алғашқы тапсырысқа 10% жеңілдік
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold leading-tight">
+                        Өз қалауыңызбен ерекше гүл шоғын жинатқыңыз келе ме?
+                    </h2>
+                    <p class="text-rose-100 text-sm sm:text-base max-w-2xl">
+                        Біздің флористер бюджетіңіз бен талғамыңызға сай кез келген түстегі раушандардан жеке композиция жасап береді.
+                    </p>
+                </div>
+                <div class="lg:col-span-4 flex lg:justify-end">
+                    <button onclick="openQuickWhatsApp()" class="w-full sm:w-auto px-8 py-4 bg-amber-400 hover:bg-amber-300 text-charcoal font-bold rounded-full shadow-lg transition transform hover:scale-105 flex items-center justify-center space-x-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Флористпен кеңесу</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Клиенттер пікірлері -->
+    <section id="reviews" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-goldAccent">Сенім мен сапа</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-charcoal mt-2">Клиенттеріміздің пікірлері</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Пікір 1 -->
+                <div class="bg-creamBg p-7 rounded-3xl border border-stone-200/70 shadow-sm space-y-4">
+                    <div class="flex text-amber-400 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-stone-700 text-sm leading-relaxed">
+                        «Анама туған күніне 51 қызыл раушан тапсырыс бердім. Гүлдері өте ірі, хош иісі керемет! Курьер дәл уақытында жеткізді. Рақмет!»
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-roseDeep text-white font-bold flex items-center justify-center">А</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-charcoal">Айгерім Сәбитқызы</h4>
+                            <span class="text-xs text-stone-400">Тұрақты клиент</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Пікір 2 -->
+                <div class="bg-creamBg p-7 rounded-3xl border border-stone-200/70 shadow-sm space-y-4">
+                    <div class="flex text-amber-400 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-stone-700 text-sm leading-relaxed">
+                        «Жұмыста жүріп сайт арқылы 5 минутта тапсырыс бердім. Жіберер алдында суретін жібергені қатты ұнады. Жұбайым өте риза болды.»
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-charcoal text-white font-bold flex items-center justify-center">Д</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-charcoal">Дәурен Нұрланұлы</h4>
+                            <span class="text-xs text-stone-400">2 күн бұрын</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Пікір 3 -->
+                <div class="bg-creamBg p-7 rounded-3xl border border-stone-200/70 shadow-sm space-y-4">
+                    <div class="flex text-amber-400 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-stone-700 text-sm leading-relaxed">
+                        «Пион тәрізді қызғылт раушандар өте нәзік екен! Орамасы да эстетикалық талғаммен жасалған. Енді тек осы дүкеннен аламын.»
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-goldAccent text-white font-bold flex items-center justify-center">М</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-charcoal">Мадина Ерланқызы</h4>
+                            <span class="text-xs text-stone-400">1 апта бұрын</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер (Байланыс) -->
+    <footer id="contacts" class="bg-charcoal text-stone-300 pt-16 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-stone-800">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-9 h-9 rounded-full bg-roseDeep text-white flex items-center justify-center">
+                            <i class="fa-solid fa-spa text-amber-200"></i>
+                        </div>
+                        <span class="font-serif text-2xl font-bold text-white">ARU ROSE</span>
+                    </div>
+                    <p class="text-sm text-stone-400 leading-relaxed">
+                        Жақындарыңызға қуаныш сыйлайтын премиум санаттағы раушан гүлдер дүкені. Тәулік бойы жылдам жеткізу.
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#" class="w-10 h-10 rounded-full bg-stone-800 hover:bg-roseDeep text-white flex items-center justify-center transition">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" onclick="openQuickWhatsApp()" class="w-10 h-10 rounded-full bg-stone-800 hover:bg-green-600 text-white flex items-center justify-center transition">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-stone-800 hover:bg-sky-600 text-white flex items-center justify-center transition">
+                            <i class="fa-brands fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-white font-bold text-base">Байланыс ақпараты</h4>
+                    <p class="text-sm flex items-center space-x-2">
+                        <i class="fa-solid fa-location-dot text-rose-400"></i>
+                        <span>Абай даңғылы, 45, Гүлдер салоны</span>
+                    </p>
+                    <p class="text-sm flex items-center space-x-2">
+                        <i class="fa-solid fa-phone text-rose-400"></i>
+                        <span>+7 (700) 123-45-67</span>
+                    </p>
+                    <p class="text-sm flex items-center space-x-2">
+                        <i class="fa-solid fa-clock text-rose-400"></i>
+                        <span>Жұмыс уақыты: 24/7 (үзіліссіз)</span>
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-white font-bold text-base">Төлем тәсілдері</h4>
+                    <p class="text-sm text-stone-400">Тапсырыс ақысын өзіңізге ыңғайлы тәсілмен төлей аласыз:</p>
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <span class="px-3 py-1.5 bg-stone-800 rounded-lg text-xs font-semibold text-white">Kaspi QR / Red</span>
+                        <span class="px-3 py-1.5 bg-stone-800 rounded-lg text-xs font-semibold text-white">Visa / Mastercard</span>
+                        <span class="px-3 py-1.5 bg-stone-800 rounded-lg text-xs font-semibold text-white">Қолма-қол</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center text-xs text-stone-500">
+                &copy; 2026 ARU ROSE — Раушан гүлдер дүкені. Барлық құқықтар қорғалған.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Себет және тапсырыс беру модалы (Shopping Cart & Checkout Modal) -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Фонды қараңғылау -->
+        <div onclick="toggleCartModal(false)" class="absolute inset-0 bg-charcoal/60 backdrop-blur-sm transition-opacity"></div>
+        
+        <!-- Модал терезесі -->
+        <div class="relative z-10 max-w-lg w-full ml-auto h-full bg-white shadow-2xl flex flex-col">
+            <!-- Модал тақырыбы -->
+            <div class="px-6 py-5 border-b border-stone-200 flex items-center justify-between bg-creamBg">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-bag-shopping text-roseDeep text-xl"></i>
+                    <h3 class="font-serif text-2xl font-bold text-charcoal">Сіздің себетіңіз</h3>
+                </div>
+                <button onclick="toggleCartModal(false)" class="w-9 h-9 rounded-full bg-white hover:bg-stone-100 text-stone-600 flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Себет ішіндегі тауарлар мен форма -->
+            <div class="flex-1 overflow-y-auto p-6 space-y-6">
+                <!-- Таңдалған гүлдер тізімі -->
+                <div id="cart-items-container" class="space-y-4">
+                    <!-- JS арқылы толтырылады -->
+                </div>
+
+                <!-- Тапсырыс беру формасы (тек себетте тауар болса көрінеді) -->
+                <form id="order-form" onsubmit="submitOrder(event)" class="space-y-4 pt-4 border-t border-stone-200 hidden">
+                    <h4 class="font-bold text-charcoal text-base">Жеткізу мәліметтері</h4>
+                    
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-600 mb-1">Есіміңіз *</label>
+                        <input type="text" id="customer-name" required placeholder="Мысалы: Арман" 
+                               class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-roseDeep focus:ring-2 focus:ring-roseDeep/20 outline-none text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-600 mb-1">Телефон нөміріңіз (WhatsApp) *</label>
+                        <input type="tel" id="customer-phone" required placeholder="+7 (700) 000-00-00" 
+                               class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-roseDeep focus:ring-2 focus:ring-roseDeep/20 outline-none text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-600 mb-1">Жеткізу мекенжайы *</label>
+                        <input type="text" id="customer-address" required placeholder="Көше, үй, пәтер нөмірі" 
+                               class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-roseDeep focus:ring-2 focus:ring-roseDeep/20 outline-none text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-600 mb-1">Ашық хатқа (открытка) жазылатын тілек</label>
+                        <textarea id="customer-note" rows="2" placeholder="Құттықтау мәтіні (міндетті емес)" 
+                                  class="w-full px-4 py-2.5 rounded-xl border border-stone-300 focus:border-roseDeep focus:ring-2 focus:ring-roseDeep/20 outline-none text-sm"></textarea>
+                    </div>
+
+                    <div class="bg-roseSoft/70 p-4 rounded-2xl flex items-center justify-between">
+                        <span class="text-sm font-medium text-stone-700">Жалпы сомасы:</span>
+                        <span id="cart-total-price" class="text-xl font-bold text-roseDeep">0 ₸</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                        <button type="submit" class="w-full py-3.5 px-4 bg-roseDeep hover:bg-roseRich text-white font-semibold rounded-xl shadow-lg transition text-sm">
+                            Тапсырыс беру
+                        </button>
+                        <button type="button" onclick="sendOrderViaWhatsApp()" class="w-full py-3.5 px-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg transition text-sm flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>WhatsApp арқылы</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Хабарлама терезесі (Toast Notification) -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-charcoal text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center space-x-3 border border-stone-700">
+        <i class="fa-solid fa-circle-check text-amber-400 text-lg"></i>
+        <span id="toast-message" class="text-sm font-medium">Гүл шоғы себетке қосылды!</span>
+    </div>
+
+    <!-- Тапсырыс сәтті қабылданды модалы -->
+    <div id="success-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div onclick="closeSuccessModal()" class="absolute inset-0 bg-charcoal/70 backdrop-blur-sm"></div>
+        <div class="relative z-10 bg-white rounded-3xl max-w-md w-full p-8 text-center shadow-2xl space-y-5">
+            <div class="w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto text-3xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="font-serif text-3xl font-bold text-charcoal">Тапсырысыңыз қабылданды!</h3>
+            <p class="text-stone-600 text-sm leading-relaxed">
+                Рақмет! Біздің менеджер 5 минут ішінде сізбен байланысып, тапсырысты растайды.
+            </p>
+            <button onclick="closeSuccessModal()" class="w-full py-3.5 bg-roseDeep text-white font-semibold rounded-xl hover:bg-roseRich transition">
+                Жақсы
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Раушан гүлдер каталогының деректері
+        const products = [
+            {
+                id: 1,
+                name: "101 Қызыл раушан «Патшайым»",
+                category: "vip",
+                price: 85000,
+                desc: "Биіктігі 70 см Эквадор қызыл раушандары. Нағыз махаббат символы.",
+                badge: "Хит",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 2,
+                name: "Ақ раушандар шоғы «Аққу» (25 дана)",
+                category: "classic",
+                price: 24500,
+                desc: "Нәзік әрі кіршіксіз тазалықты білдіретін 25 голландиялық ақ раушан.",
+                badge: "Нәзік",
+                image: "https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 3,
+                name: "Қызғылт пион тәрізді раушандар (19 дана)",
+                category: "classic",
+                price: 29000,
+                desc: "Ерекше хош иісті О'Хара сұрыпты пион тәрізді раушандар топтамасы.",
+                badge: "Тренд",
+                image: "https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 4,
+                name: "Барқыт қораптағы раушандар",
+                category: "box",
+                price: 32000,
+                desc: "Арнайы ылғал сақтағыш губкаға орналастырылған 21 раушан. Ваза қажет етпейді.",
+                badge: "Сәнді",
+                image: "https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 5,
+                name: "51 Голландиялық микс раушан",
+                category: "vip",
+                price: 46000,
+                desc: "Қызыл, қызғылт және крем түсті раушандардың үйлесімді композициясы.",
+                badge: "-10%",
+                image: "https://images.unsplash.com/photo-1562690868-60bbe7293e94?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 6,
+                name: "Көк раушандар «Ғарыш сыры» (15 дана)",
+                category: "box",
+                price: 27500,
+                desc: "Ерекше әсер қалдырғысы келетін жандар үшін сирек кездесетін көк раушандар.",
+                badge: "Эксклюзив",
+                image: "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        // Себет күйі (State)
+        let cart = [];
+
+        // Дүкеннің WhatsApp нөмірі
+        const SHOP_WHATSAPP = "77001234567";
+
+        // Бағаны теңгемен форматтау
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₸";
+        }
+
+        // Каталогты экранға шығару
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' 
+                ? products 
+                : products.filter(p => p.category === filter);
+
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-3xl overflow-hidden border border-stone-200/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group";
+                card.innerHTML = `
+                    <div class="relative aspect-[4/3] overflow-hidden bg-roseSoft">
+                        <img src="${product.image}" 
+                             onerror="this.src='https://placehold.co/600x450/9F1239/FFF1F2?text=${encodeURIComponent(product.name)}'"
+                             alt="${product.name}" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        ${product.badge ? `<span class="absolute top-4 left-4 bg-charcoal/85 backdrop-blur-md text-amber-300 text-xs font-bold px-3 py-1 rounded-full">${product.badge}</span>` : ''}
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-charcoal group-hover:text-roseDeep transition">${product.name}</h3>
+                            <p class="text-stone-500 text-sm mt-2 leading-relaxed">${product.desc}</p>
+                        </div>
+                        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 block">Бағасы</span>
+                                <span class="text-xl font-bold text-roseDeep">${formatPrice(product.price)}</span>
+                            </div>
+                            <button onclick="addToCart(${product.id})" class="px-5 py-3 bg-roseSoft hover:bg-roseDeep text-roseDeep hover:text-white font-semibold rounded-2xl transition flex items-center space-x-2 active:scale-95">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                                <span class="text-sm">Себетке</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Категория бойынша сүзу
+        function filterProducts(category, btnElement) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-roseDeep', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'text-stone-700', 'border', 'border-stone-200');
+            });
+            btnElement.classList.remove('bg-white', 'text-stone-700', 'border', 'border-stone-200');
+            btnElement.classList.add('bg-roseDeep', 'text-white', 'shadow-md');
+            
+            renderProducts(category);
+        }
+
+        // Себетке қосу
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+
+            updateCartUI();
+            showToast(`«${product.name}» себетке қосылды`);
+        }
+
+        // Санын өзгерту
+        function changeQty(productId, delta) {
+            const index = cart.findIndex(item => item.id === productId);
+            if (index === -1) return;
+
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        // Себет интерфейсін жаңарту
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const container = document.getElementById('cart-items-container');
+            const orderForm = document.getElementById('order-form');
+            const totalPriceEl = document.getElementById('cart-total-price');
+
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            badge.textContent = totalQty;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 space-y-3">
+                        <div class="w-16 h-16 rounded-full bg-roseSoft text-roseDeep flex items-center justify-center mx-auto text-2xl">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </div>
+                        <h4 class="font-bold text-charcoal text-lg">Себет әзірге бос</h4>
+                        <p class="text-sm text-stone-500">Каталогтан өзіңізге ұнаған раушан шоғын таңдаңыз.</p>
+                    </div>
+                `;
+                orderForm.classList.add('hidden');
+            } else {
+                container.innerHTML = cart.map(item => `
+                    <div class="flex items-center justify-between bg-creamBg p-3.5 rounded-2xl border border-stone-200/70">
+                        <div class="flex items-center space-x-3">
+                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover">
+                            <div>
+                                <h5 class="font-bold text-sm text-charcoal line-clamp-1">${item.name}</h5>
+                                <span class="text-roseDeep font-bold text-sm">${formatPrice(item.price)}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-white px-2.5 py-1.5 rounded-xl border border-stone-200">
+                            <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 text-stone-600 hover:text-roseDeep font-bold">-</button>
+                            <span class="text-sm font-bold w-5 text-center">${item.qty}</span>
+                            <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 text-stone-600 hover:text-roseDeep font-bold">+</button>
+                        </div>
+                    </div>
+                `).join('');
+
+                orderForm.classList.remove('hidden');
+                totalPriceEl.textContent = formatPrice(totalPrice);
+            }
+        }
+
+        // Себет модалын ашу/жабу
+        function toggleCartModal(show) {
+            const modal = document.getElementById('cart-modal');
+            if (show) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Сайт арқылы тапсырысты жіберу
+        function submitOrder(e) {
+            e.preventDefault();
+            if (cart.length === 0) return;
+
+            toggleCartModal(false);
+            cart = [];
+            updateCartUI();
+            document.getElementById('order-form').reset();
+            document.getElementById('success-modal').classList.remove('hidden');
+        }
+
+        // WhatsApp арқылы дайын тапсырысты жіберу
+        function sendOrderViaWhatsApp() {
+            if (cart.length === 0) return;
+
+            const name = document.getElementById('customer-name').value || "Көрсетілмеген";
+            const phone = document.getElementById('customer-phone').value || "Көрсетілмеген";
+            const address = document.getElementById('customer-address').value || "Көрсетілмеген";
+            const note = document.getElementById('customer-note').value;
+
+            let itemsText = cart.map((item, idx) => 
+                `${idx + 1}. ${item.name} — ${item.qty} дана (${formatPrice(item.price * item.qty)})`
+            ).join('%0A');
+
+            const total = formatPrice(cart.reduce((sum, item) => sum + (item.price * item.qty), 0));
+
+            let message = `Сәлеметсіз бе! *ARU ROSE* дүкенінен тапсырыс бергім келеді:%0A%0A` +
+                          `*Таңдалған гүлдер:*%0A${itemsText}%0A%0A` +
+                          `*Жалпы сомасы:* ${total}%0A` +
+                          `*Есімі:* ${name}%0A` +
+                          `*Телефон:* ${phone}%0A` +
+                          `*Мекенжайы:* ${address}`;
+
+            if (note) {
+                message += `%0A*Открытка мәтіні:* ${note}`;
+            }
+
+            window.open(`https://wa.me/${SHOP_WHATSAPP}?text=${message}`, '_blank');
+        }
+
+        // Тікелей WhatsApp-қа жазу
+        function openQuickWhatsApp() {
+            const text = encodeURIComponent("Сәлеметсіз бе! Раушан гүлдер шоғы бойынша кеңес алғым келеді.");
+            window.open(`https://wa.me/${SHOP_WHATSAPP}?text=${text}`, '_blank');
+        }
+
+        // Сәтті тапсырыс модалын жабу
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+
+        // Хабарлама (Toast) көрсету
+        let toastTimeout;
+        function showToast(text) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = text;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 2500);
+        }
+
+        // Бет жүктелгенде каталог пен себетті іске қосу
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            updateCartUI();
+        });
+    </script>
+</body>
+</html>
